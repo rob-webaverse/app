@@ -11,8 +11,6 @@ phases:
       - apt install libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev libasound2 -y
       - sudo npm install forever -g
       - npm install -y
-      - npm install wsrtc@0.0.6
-      - npm install metaversefile@0.0.32
       - cd tests/loading
       - npm install -y
   build:
