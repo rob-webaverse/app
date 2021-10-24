@@ -8,6 +8,7 @@ phases:
       - echo Entered the install phase...
       - apt update -y
       - apt install sudo -y
+      - apt install libnss -y
       - sudo npm install forever -g
       - npm install -y
       - npm install wsrtc@0.0.6
