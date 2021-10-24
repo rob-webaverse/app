@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       nodejs: latest
     commands:
-      - sudo npm install forever -g
+      - npm install forever -g
       - npm install -y
       - cd .\tests\loading
       - npm install -y
