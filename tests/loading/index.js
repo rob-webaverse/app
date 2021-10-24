@@ -31,10 +31,15 @@ class LoadTester {
 
   async init() {
     this.browser = await puppeteer.launch({
-      headless: true, // change to false for debug
+      headless: false, // change to false for debug
       slowMo: this.config.slowMo,
       defaultViewport: null,
-      args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox'],
+      args: ['--start-maximized', 
+             '--no-sandbox', 
+             '--disable-setuid-sandbox',
+             '--headless',
+             '--hide-scrollbars',
+             '--mute-audio'],
     });
     var self = this;
 
