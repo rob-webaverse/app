@@ -3,6 +3,8 @@ const puppeteer = require('puppeteer-extra');
 const {performance} = require('perf_hooks');
 const scenes = require('../../scenes/scenes.json');
 
+console.log(1)
+
 function sleep(seconds) {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
@@ -81,13 +83,16 @@ class LoadTester {
   }
 
   async run() {
+    console.log(4)
     await this.init();
+    console.log(5)
     await this.test();
   }
 
   constructor(config) {
     this.config = config;
     this.run();
+    console.log(3)
   }
 
   async finish() {
@@ -103,3 +108,5 @@ new LoadTester(
     host: 'http://localhost:3000',
   },
 );
+
+console.log(2)
