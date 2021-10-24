@@ -44,7 +44,7 @@ class LoadTester {
     this.errorIndex = 0;
     this.page
       .on('console', message => {
-        if (message.type().substr(0, 3).toUpperCase() === 'ERR') {
+        if (true) {
           this.addStat('ERROR', 'Page-Error: ' + message.text());
         }
       })
@@ -54,12 +54,15 @@ class LoadTester {
   }
 
   async testScene(sceneUrl) {
+    console.log(7)
     const t0 = performance.now();
 
     await this.page.goto(sceneUrl, {
       waitUntil: 'networkidle0',
     });
 
+    console.log(8)
+    
     const t1 = performance.now();
 
     this.addStat('PERFORMANCE', `Street Scene Loaded in ${Number(t1 - t0).toFixed(0) / 1000}s`);
@@ -68,7 +71,9 @@ class LoadTester {
   }
 
   async test() {
+    console.log(6)
     for (const scene of scenes) {
+      console.log(100)
       const sceneUrl = `${this.config.host}?src=${this.config.host}/scenes/${scene}`;
       await this.testScene(sceneUrl);
       console.log(scene, this.stats);
