@@ -1,9 +1,10 @@
-FROM node	
+FROM node
+ARG GIT_REPO_URL	
 ENV LAST_UPDATED 20160605T165400	
 LABEL description="webaverse-app"
 	
 # Copy source code
-COPY . /app
+RUN git clone --recurse-submodules $GIT_REPO_URL 
 	
 
 # Change working directory
@@ -12,7 +13,6 @@ WORKDIR /app
 
 # Install dependencies
 RUN apt update -y
-RUN apt install sudo -y
 RUN npm install forever -g
 RUN npm install
 RUN npm list
